@@ -5,12 +5,11 @@
        http://www.liquibase.org/xml/ns/dbchangelog
        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="2" author="ezer">
-
-        <addColumn tableName="credentials">
-            <column name="last_login" type="timestamp"/>
-        </addColumn>
-
+    <changeSet id="002" author="ezer">
+        <sql>
+            ALTER TABLE credentials
+            ADD COLUMN last_login TIMESTAMP;
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

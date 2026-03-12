@@ -1,2 +1,3 @@
 rootProject.name = 'booking-system'
 include 'auth-ms'
+include 'gateway'

@@ -16,10 +16,10 @@ import java.util.UUID;
 public class Credentials {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private UUID id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 64)
     private String email;
 
     @Column(name = "password_hash", nullable = false)
@@ -28,5 +28,11 @@ public class Credentials {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Column(name = "created_at", length = 255)
     private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 }

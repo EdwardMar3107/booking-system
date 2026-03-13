@@ -44,6 +44,16 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
             return exchange.getResponse().setComplete();
         }
 
+        // достаем email из JWT
+        String userEmail = jwtService.extractAllClaims(token).getSubject();
+
+        // добавляем header для downstream сервисов
+        exchange = exchange.mutate()
+                .request(exchange.getRequest().mutate()
+                        .header("X-User-Email", userEmail)
+                        .build())
+                .build();
+
         return chain.filter(exchange);
     }
 

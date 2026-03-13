@@ -1,4 +1,4 @@
-package by.ezer.security;
+package by.ezer.gateway.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

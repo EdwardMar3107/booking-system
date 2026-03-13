@@ -1,6 +1,6 @@
-package by.ezer.filters;
+package by.ezer.gateway.filters;
 
-import by.ezer.security.JwtService;
+import by.ezer.gateway.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

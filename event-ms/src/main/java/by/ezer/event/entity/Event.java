@@ -30,7 +30,7 @@ public class Event {
     private String location;
 
     @Column(name = "event_date", nullable = false)
-    private LocalDate EventDate;
+    private LocalDate eventDate;
 
     @Column(name = "created_by", nullable = false, length = 255)
     private String createdBy;

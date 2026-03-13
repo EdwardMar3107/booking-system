@@ -1,4 +1,4 @@
-package by.ezer.filter;
+package by.ezer.filters;
 
 import by.ezer.security.JwtService;
 import lombok.RequiredArgsConstructor;

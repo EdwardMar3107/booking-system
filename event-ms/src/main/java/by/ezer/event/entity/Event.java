@@ -23,10 +23,10 @@ public class Event {
     @Column(nullable = false, length = 200)
     private String title;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 1000)
     private String description;
 
-    @Column(nullable = false, length = 225)
+    @Column(nullable = false, length = 255)
     private String location;
 
     @Column(name = "event_date", nullable = false)

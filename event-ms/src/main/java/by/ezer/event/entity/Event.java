@@ -1,6 +1,7 @@
 package by.ezer.event.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -20,22 +21,22 @@ public class Event {
     @GeneratedValue
     private UUID id;
 
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false)
     private String title;
 
-    @Column(length = 1000)
     private String description;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String location;
 
     @Column(name = "event_date", nullable = false)
     private LocalDate eventDate;
 
-    @Column(name = "created_by", nullable = false, length = 255)
+    @Column(name = "created_by", nullable = false)
     private String createdBy;
 
     @Column(name = "created_at", nullable = false)
+    @PastOrPresent(message = "Creation date cannot be in the future")
     private LocalDateTime createdAt;
 
     @PrePersist

@@ -3,14 +3,11 @@ package by.ezer.booking.service.impl;
 import by.ezer.booking.dto.BookingResponse;
 import by.ezer.booking.dto.CreateBookingRequest;
 import by.ezer.booking.entity.Booking;
-import by.ezer.booking.entity.Status;
 import by.ezer.booking.mapper.BookingMapper;
 import by.ezer.booking.repository.BookingRepository;
 import by.ezer.booking.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor

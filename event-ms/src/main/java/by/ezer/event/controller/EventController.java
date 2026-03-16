@@ -2,8 +2,7 @@ package by.ezer.event.controller;
 
 import by.ezer.event.dto.CreateEventRequest;
 import by.ezer.event.dto.EventResponse;
-import by.ezer.event.entity.Event;
-import by.ezer.event.service.EventService;
+import by.ezer.event.service.impl.EventServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class EventController {
 
-    private final EventService eventService;
+    private final EventServiceImpl eventService;
 
     @PostMapping
     public ResponseEntity<EventResponse> createEvent(@Valid @RequestBody CreateEventRequest request,

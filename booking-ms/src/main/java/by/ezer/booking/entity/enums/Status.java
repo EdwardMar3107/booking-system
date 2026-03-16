@@ -1,4 +1,4 @@
-package by.ezer.booking.entity;
+package by.ezer.booking.entity.enums;
 
 public enum Status {
     CONFIRMED,

@@ -1,8 +1,7 @@
 package by.ezer.booking.dto;
 
-import by.ezer.booking.entity.Status;
+import by.ezer.booking.entity.enums.Status;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record BookingResponse(

@@ -1,5 +1,6 @@
 package by.ezer.booking.entity;
 
+import by.ezer.booking.entity.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.*;

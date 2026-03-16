@@ -27,6 +27,7 @@ public class Booking {
     private String userEmail;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(name = "created_at", nullable = false)
@@ -36,5 +37,9 @@ public class Booking {
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
+
+        if (status == null) {
+            status = Status.CONFIRMED;
+        }
     }
 }

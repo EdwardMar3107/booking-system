@@ -21,6 +21,8 @@ public class PaymentServiceImpl {
 
         Payment saved = paymentRepository.save(payment);
 
+        String paymentUrl = "https://edwardmar3107.github.io/payment-page/?bookingId=" + request.bookingId();
+
         return paymentMapper.toResponse(saved);
     }
 }

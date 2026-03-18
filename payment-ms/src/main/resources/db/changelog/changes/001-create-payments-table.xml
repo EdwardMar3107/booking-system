@@ -12,7 +12,7 @@
             id UUID PRIMARY KEY,
             booking_id UUID NOT NULL,
             status VARCHAR(20) NOT NULL,
-            amount DOUBLE PRECISION NOT NULL,
+            amount NUMERIC(19,2) NOT NULL,
             created_at TIMESTAMP NOT NULL
             );
         </sql>

@@ -8,6 +8,7 @@ import by.ezer.booking.mapper.BookingMapper;
 import by.ezer.booking.messaging.BookingEventPublisher;
 import by.ezer.booking.repository.BookingRepository;
 import by.ezer.booking.service.BookingService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class BookingServiceImpl implements BookingService {
     private final BookingEventPublisher bookingEventPublisher;
 
     @Override
+    @Transactional
     public BookingResponse createBooking(CreateBookingRequest request, String userEmail) {
 
         Booking booking = bookingMapper.toEntity(request);

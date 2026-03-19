@@ -5,6 +5,7 @@ import by.ezer.auth.entity.Credentials;
 import by.ezer.auth.exception.ServiceException;
 import by.ezer.auth.repository.CredentialsRepository;
 import by.ezer.auth.security.JwtService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
+    @Transactional
     public AuthResponse register(String email, String password) {
 
         if (credentialsRepository.existsByEmail(email)) {

@@ -17,6 +17,7 @@ public class EventServiceImpl implements EventService {
     private final EventRepository eventRepository;
     private final EventMapper eventMapper;
 
+    @Override
     @Transactional
     public EventResponse createEvent(CreateEventRequest request, String userEmail) {
 

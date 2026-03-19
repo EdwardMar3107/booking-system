@@ -5,6 +5,10 @@ spring:
   application:
     name: booking-service
   rabbitmq:
+    booking:
+      exchange: booking.exchange
+      routing-key:
+        created: booking.created
     host: localhost
     port: 5672
     username: guest

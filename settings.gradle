@@ -1,4 +1,5 @@
 rootProject.name = 'booking-system'
 include 'auth-ms'
 include 'gateway'
+include 'payment-ms'
 include 'event-ms'

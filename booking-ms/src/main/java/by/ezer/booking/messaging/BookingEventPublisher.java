@@ -12,10 +12,10 @@ public class BookingEventPublisher {
 
     private final RabbitTemplate rabbitTemplate;
 
-    @Value("${rabbitmq.booking.exchange}")
+    @Value("${spring.rabbitmq.booking.exchange}")
     private String bookingExchange;
 
-    @Value("${rabbitmq.booking.routing-key.created}")
+    @Value("${spring.rabbitmq.booking.routing-key.created}")
     private String bookingCreatedRoutingKey;
 
     public void publishBookingCreated(BookingCreatedEvent event) {

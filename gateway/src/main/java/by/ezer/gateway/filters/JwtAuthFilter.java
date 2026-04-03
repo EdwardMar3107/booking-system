@@ -4,6 +4,7 @@ import by.ezer.gateway.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -47,11 +48,13 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
         // достаем email из JWT
         String userEmail = jwtService.extractAllClaims(token).getSubject();
 
-        // добавляем header для downstream сервисов
-        exchange = exchange.mutate()
-                .request(exchange.getRequest().mutate()
-                        .header("X-User-Email", userEmail)
-                        .build())
+        ServerHttpRequest mutatedRequest = exchange.getRequest().mutate()
+                .header("X-User-Email", userEmail)
+                .build();
+
+        // Важно: создаём новый exchange с изменённым запросом
+        ServerWebExchange mutatedExchange = exchange.mutate()
+                .request(mutatedRequest)
                 .build();
 
         return chain.filter(exchange);
@@ -59,6 +62,6 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return -1;
+        return -100;
     }
 }
